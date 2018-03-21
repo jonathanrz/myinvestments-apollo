@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import { HashRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Link, Route } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
