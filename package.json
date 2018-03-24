@@ -8,6 +8,7 @@
     "clean": "nwb clean-app",
     "start": "nwb serve-react-app --port $PORT",
     "lint": "eslint --cache ./src",
+    "nwb": "0.21.x",
     "test": "nwb test-react",
     "test:coverage": "nwb test-react --coverage",
     "test:watch": "nwb test-react --server"
@@ -35,7 +36,6 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-plugin-standard": "^3.0.1",
-    "nwb": "0.21.x",
     "prettier": "^1.11.1",
     "prettier-standard": "^8.0.0"
   },
