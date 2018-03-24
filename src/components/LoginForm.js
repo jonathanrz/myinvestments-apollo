@@ -1,40 +1,40 @@
-import React from "react";
-import { graphql } from "react-apollo";
-import { withRouter } from "react-router-dom";
+import React from 'react'
+import { graphql } from 'react-apollo'
+import { withRouter } from 'react-router-dom'
 
-import mutation from "../mutations/Login";
+import mutation from '../mutations/Login'
 
 class LoginForm extends React.Component {
   state = {
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     errors: []
-  };
+  }
 
   onSubmit = event => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const { email, password } = this.state;
+    const { email, password } = this.state
 
     this.props
       .mutate({
         variables: { email, password }
       })
       .then(async ({ data }) => {
-        const { login } = data;
+        const { login } = data
         if (login) {
-          localStorage.setItem("token", `Bearer ${login}`);
-          this.props.history.push("/");
+          localStorage.setItem('token', `Bearer ${login}`)
+          this.props.history.push('/')
         }
       })
       .catch(res => {
-        const errors = res.graphQLErrors.map(error => error.message);
-        this.setState({ errors });
-      });
-  };
+        const errors = res.graphQLErrors.map(error => error.message)
+        this.setState({ errors })
+      })
+  }
 
   render() {
-    const { errors } = this.state;
+    const { errors } = this.state
 
     return (
       <div>
@@ -57,8 +57,8 @@ class LoginForm extends React.Component {
           </form>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default withRouter(graphql(mutation)(LoginForm));
+export default withRouter(graphql(mutation)(LoginForm))
