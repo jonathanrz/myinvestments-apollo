@@ -47,7 +47,7 @@ jobs:
           command: yarn build
       - run:
           name: upload to s3
-          command: aws s3 sync ./dist s3://$STAGING_BUCKET --delete
+          command: aws s3 sync ./dist s3://myinvestments-apollo-stg --delete
 
   production:
     docker:
@@ -73,7 +73,7 @@ jobs:
           command: yarn build
       - run:
           name: upload to s3
-          command: aws s3 sync ./dist s3://$PRODUCTION_BUCKET --delete
+          command: aws s3 sync ./dist s3://myinvestments-apollo-prd --delete
 
 workflows:
   version: 2
