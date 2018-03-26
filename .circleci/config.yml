@@ -54,7 +54,7 @@ jobs:
 
   production:
     docker:
-      - image: buildpack-deps:trusty
+      - image: circleci/node:8.2.1
     working_directory: ~/repo
     steps:
       - checkout
