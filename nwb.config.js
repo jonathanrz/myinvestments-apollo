@@ -1,7 +1,10 @@
 module.exports = {
   type: 'react-app',
   webpack: {
-    publicPath: ''
+    publicPath: '',
+    define: {
+      __MYINVESTMENTS_API__: JSON.stringify(process.env.MYINVESTMENTS_API)
+    }
   },
   babel: {
     plugins: [

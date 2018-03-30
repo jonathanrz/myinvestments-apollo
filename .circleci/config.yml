@@ -44,13 +44,13 @@ jobs:
           key: v2-dependencies-node_modules-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build site
-          command: yarn build
+          command: MYINVESTMENTS_API=$MYINVESTMENTS_STAGING_API yarn build
       - run:
           name: install aws
           command: sudo apt-get update && sudo apt-get install -y awscli
       - run:
           name: upload to s3
-          command: aws s3 sync ./dist s3://myinvestments-apollo-stg --delete
+          command: aws s3 sync ./dist $STAGING_BUCKET --delete
 
   production:
     docker:
@@ -73,13 +73,13 @@ jobs:
           key: v2-dependencies-node_modules-{{ arch }}-{{ checksum "yarn.lock" }}
       - run:
           name: build site
-          command: yarn build
+          command: MYINVESTMENTS_API=$MYINVESTMENTS_PRODUCTION_API yarn build
       - run:
           name: install aws
           command: sudo apt-get update && sudo apt-get install -y awscli
       - run:
           name: upload to s3
-          command: aws s3 sync ./dist s3://myinvestments-apollo-prd --delete
+          command: aws s3 sync ./dist $PRODUCTION_BUNDLE --delete
 
 workflows:
   version: 2

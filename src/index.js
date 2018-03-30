@@ -9,7 +9,7 @@ import LoginForm from './components/LoginForm'
 import requireAuth from './components/requireAuth'
 
 const client = new ApolloClient({
-  uri: 'https://myinvestments-ws-apollo-stg.herokuapp.com',
+  uri: __MYINVESTMENTS_API__, //eslint-disable-line no-undef
   request: async operation => {
     const token = localStorage.getItem('token')
     if (token) {
