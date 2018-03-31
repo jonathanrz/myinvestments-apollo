@@ -15,7 +15,8 @@ module.exports = {
             app: './src'
           }
         }
-      ]
+      ],
+      ['import', { libraryName: 'antd', libraryDirectory: 'es', style: 'css' }]
     ]
   }
 }

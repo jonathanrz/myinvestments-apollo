@@ -1,64 +1,70 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
+import { Form, Icon, Input, Button } from 'antd'
 
 import mutation from '../mutations/Login'
 
-class LoginForm extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    errors: []
+class NormalLoginForm extends React.Component {
+  handleSubmit = e => {
+    e.preventDefault()
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        const { email, password } = values
+
+        this.props
+          .mutate({
+            variables: { email, password }
+          })
+          .then(async ({ data }) => {
+            const { login } = data
+            if (login) {
+              localStorage.setItem('token', `Bearer ${login}`)
+              this.props.history.push('/')
+            }
+          })
+          .catch(res => {
+            const errors = res.graphQLErrors.map(error => error.message)
+            this.setState({ errors })
+          })
+      }
+    })
   }
-
-  onSubmit = event => {
-    event.preventDefault()
-
-    const { email, password } = this.state
-
-    this.props
-      .mutate({
-        variables: { email, password }
-      })
-      .then(async ({ data }) => {
-        const { login } = data
-        if (login) {
-          localStorage.setItem('token', `Bearer ${login}`)
-          this.props.history.push('/')
-        }
-      })
-      .catch(res => {
-        const errors = res.graphQLErrors.map(error => error.message)
-        this.setState({ errors })
-      })
-  }
-
   render() {
-    const { errors } = this.state
-
+    const { getFieldDecorator } = this.props.form
     return (
-      <div>
-        <h3>Login</h3>
-        <div>
-          <form onSubmit={this.onSubmit}>
-            <input
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator('email', {
+            rules: [{ required: true, message: 'Informe o seu e-mail!' }]
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Email"
-              value={this.state.email}
-              onChange={e => this.setState({ email: e.target.value })}
             />
-            <input
-              placeholder="Password"
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Por favor informe a sua senha' }]
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
-              value={this.state.password}
-              onChange={e => this.setState({ password: e.target.value })}
+              placeholder="Senha"
             />
-            {errors.map(error => <div key={error}>{error}</div>)}
-            <button>Login</button>
-          </form>
-        </div>
-      </div>
+          )}
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="login-form-button">
+            Entrar
+          </Button>
+        </Form.Item>
+      </Form>
     )
   }
 }
 
-export default withRouter(graphql(mutation)(LoginForm))
+const WrappedNormalLoginForm = Form.create()(NormalLoginForm)
+
+export default withRouter(graphql(mutation)(WrappedNormalLoginForm))
