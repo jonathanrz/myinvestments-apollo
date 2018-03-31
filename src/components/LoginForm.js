@@ -30,14 +30,17 @@ class NormalLoginForm extends React.Component {
       }
     })
   }
+
+  getRequiredFieldDecorator = (fieldName, message) =>
+    this.props.form.getFieldDecorator('email', {
+      rules: [{ required: true, message: 'Informe o seu e-mail!' }]
+    })
+
   render() {
-    const { getFieldDecorator } = this.props.form
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <Form.Item>
-          {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Informe o seu e-mail!' }]
-          })(
+          {this.getRequiredFieldDecorator('email', 'Informe o seu e-mail!')(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Email"
@@ -45,9 +48,7 @@ class NormalLoginForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Por favor informe a sua senha' }]
-          })(
+          {this.getRequiredFieldDecorator('password', 'Por favor informe a sua senha')(
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
