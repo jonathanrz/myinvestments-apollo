@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
-import { Form, Icon, Input, Button } from 'antd'
+import { Form, Icon, Input, Button, message } from 'antd'
 
 import mutation from '../mutations/Login'
 
@@ -25,22 +25,20 @@ class NormalLoginForm extends React.Component {
           })
           .catch(res => {
             const errors = res.graphQLErrors.map(error => error.message)
-            this.setState({ errors })
+            message.error(errors)
           })
       }
     })
   }
 
   getRequiredFieldDecorator = (fieldName, message) =>
-    this.props.form.getFieldDecorator('email', {
-      rules: [{ required: true, message: 'Informe o seu e-mail!' }]
-    })
+    this.props.form.getFieldDecorator(fieldName, { rules: [{ required: true, message }] })
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
+      <Form onSubmit={this.handleSubmit}>
         <Form.Item>
-          {this.getRequiredFieldDecorator('email', 'Informe o seu e-mail!')(
+          {this.getRequiredFieldDecorator('email', 'Por favor informe o seu e-mail')(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Email"
@@ -57,7 +55,7 @@ class NormalLoginForm extends React.Component {
           )}
         </Form.Item>
         <Form.Item>
-          <Button type="primary" htmlType="submit" className="login-form-button">
+          <Button type="primary" htmlType="submit">
             Entrar
           </Button>
         </Form.Item>
