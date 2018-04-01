@@ -1,9 +1,16 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 import { Form, Icon, Input, Button, message } from 'antd'
 
 import mutation from '../mutations/Login'
+
+const Container = styled.div`
+  max-width: 600px;
+  margin: auto;
+  margin: 25px;
+`
 
 class NormalLoginForm extends React.Component {
   handleSubmit = e => {
@@ -36,30 +43,32 @@ class NormalLoginForm extends React.Component {
 
   render() {
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Item>
-          {this.getRequiredFieldDecorator('email', 'Por favor informe o seu e-mail')(
-            <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="Email"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          {this.getRequiredFieldDecorator('password', 'Por favor informe a sua senha')(
-            <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              type="password"
-              placeholder="Senha"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Entrar
-          </Button>
-        </Form.Item>
-      </Form>
+      <Container>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Item>
+            {this.getRequiredFieldDecorator('email', 'Por favor informe o seu e-mail')(
+              <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder="Email"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            {this.getRequiredFieldDecorator('password', 'Por favor informe a sua senha')(
+              <Input
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                type="password"
+                placeholder="Senha"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit">
+              Entrar
+            </Button>
+          </Form.Item>
+        </Form>
+      </Container>
     )
   }
 }
