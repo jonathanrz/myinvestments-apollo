@@ -43,7 +43,7 @@ class Login extends React.Component {
 
 const RouteredLogin = withRouter(Login)
 
-const Connected = () => (
+const ConnectedLogin = () => (
   <Mutation mutation={mutation}>
     {(requestLogin, response) => (
       <RouteredLogin requestLogin={requestLogin} response={response || {}} />
@@ -51,4 +51,4 @@ const Connected = () => (
   </Mutation>
 )
 
-export default Connected
+export default ConnectedLogin
