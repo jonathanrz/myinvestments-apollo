@@ -5,9 +5,7 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
 import Login from './pages/Login'
-
-import Dashboard from './components/Dashboard'
-import requireAuth from './components/requireAuth'
+import Dashboard from './pages/Dashboard'
 
 const client = new ApolloClient({
   uri: __MYINVESTMENTS_API__, //eslint-disable-line no-undef
@@ -27,7 +25,7 @@ const ApolloApp = () => (
   <ApolloProvider client={client}>
     <Router>
       <div>
-        <Route exact path="/" component={requireAuth(Dashboard)} />
+        <Route exact path="/" component={Dashboard} />
         <Route path="/login" component={Login} />
       </div>
     </Router>

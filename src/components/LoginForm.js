@@ -1,9 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql } from 'react-apollo'
-import { Form, Icon, Input, Button, message } from 'antd'
-
-import mutation from '../mutations/Login'
+import { Form, Icon, Input, Button } from 'antd'
 
 const Container = styled.div`
   max-width: 600px;
@@ -17,21 +14,7 @@ class NormalLoginForm extends React.Component {
       if (!err) {
         const { email, password } = values
 
-        this.props
-          .mutate({
-            variables: { email, password }
-          })
-          .then(async ({ data }) => {
-            const { login } = data
-            if (login) {
-              localStorage.setItem('token', `Bearer ${login}`)
-              this.props.history.push('/')
-            }
-          })
-          .catch(res => {
-            const errors = res.graphQLErrors.map(error => error.message)
-            message.error(errors)
-          })
+        this.props.executeLogin({ email, password })
       }
     })
   }
@@ -73,4 +56,4 @@ class NormalLoginForm extends React.Component {
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm)
 
-export default graphql(mutation)(WrappedNormalLoginForm)
+export default WrappedNormalLoginForm
