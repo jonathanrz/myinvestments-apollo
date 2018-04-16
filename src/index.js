@@ -4,8 +4,9 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
+import Login from './pages/Login'
+
 import Dashboard from './components/Dashboard'
-import LoginForm from './components/LoginForm'
 import requireAuth from './components/requireAuth'
 
 const client = new ApolloClient({
@@ -27,7 +28,7 @@ const ApolloApp = () => (
     <Router>
       <div>
         <Route exact path="/" component={requireAuth(Dashboard)} />
-        <Route path="/login" component={LoginForm} />
+        <Route path="/login" component={Login} />
       </div>
     </Router>
   </ApolloProvider>

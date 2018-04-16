@@ -1,15 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'react-apollo'
-import { withRouter } from 'react-router-dom'
 import { Form, Icon, Input, Button, message } from 'antd'
 
 import mutation from '../mutations/Login'
 
 const Container = styled.div`
   max-width: 600px;
-  margin: auto;
-  margin: 25px;
+  margin: 50px;
 `
 
 class NormalLoginForm extends React.Component {
@@ -75,4 +73,4 @@ class NormalLoginForm extends React.Component {
 
 const WrappedNormalLoginForm = Form.create()(NormalLoginForm)
 
-export default withRouter(graphql(mutation)(WrappedNormalLoginForm))
+export default graphql(mutation)(WrappedNormalLoginForm)
