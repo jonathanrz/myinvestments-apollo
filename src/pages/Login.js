@@ -9,7 +9,6 @@ import LoginForm from 'app/components/LoginForm'
 
 class Login extends React.Component {
   executeLogin = ({ email, password }) => {
-    console.log('executeLogin')
     this.props.requestLogin({
       variables: { email, password }
     })
@@ -19,7 +18,6 @@ class Login extends React.Component {
 
   componentDidUpdate() {
     const { data } = this.props.response
-    console.log('getDerivedStateFromProps', data)
     if (data) {
       localStorage.setItem('token', `Bearer ${data.login}`)
       this.props.history.push('/')
