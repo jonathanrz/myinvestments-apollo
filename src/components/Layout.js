@@ -4,7 +4,7 @@ import { Layout } from 'antd'
 
 import colors from 'app/theme/colors'
 
-const { Header, Footer, Sider, Content } = Layout
+const { Header, Sider, Content } = Layout
 
 const CustomLayout = ({ title, sider = true, footer = true, children }) => (
   <StyledLayout>
@@ -13,7 +13,6 @@ const CustomLayout = ({ title, sider = true, footer = true, children }) => (
       {sider && <StyledSider>Sider</StyledSider>}
       <Content>{children}</Content>
     </Layout>
-    {footer && <StyledFooter>Footer</StyledFooter>}
   </StyledLayout>
 )
 
@@ -29,10 +28,6 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledSider = styled(Sider)`
-  background: ${colors.background};
-`
-
-const StyledFooter = styled(Footer)`
   background: ${colors.background};
 `
 
