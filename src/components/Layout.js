@@ -1,20 +1,22 @@
 import React, { StrictMode } from 'react'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import { Layout } from 'antd'
 
-import colors from 'app/theme/colors'
+import theme from 'app/theme'
 
 const { Header, Sider, Content } = Layout
 
 const CustomLayout = ({ title, sider = true, footer = true, children }) => (
   <StrictMode>
-    <StyledLayout>
-      <StyledHeader>{title}</StyledHeader>
-      <Layout>
-        {sider && <StyledSider>Sider</StyledSider>}
-        <Content>{children}</Content>
-      </Layout>
-    </StyledLayout>
+    <ThemeProvider theme={theme}>
+      <StyledLayout>
+        <StyledHeader>{title}</StyledHeader>
+        <Layout>
+          {sider && <StyledSider>Sider</StyledSider>}
+          <Content>{children}</Content>
+        </Layout>
+      </StyledLayout>
+    </ThemeProvider>
   </StrictMode>
 )
 
@@ -24,13 +26,13 @@ const StyledLayout = styled(Layout)`
 `
 
 const StyledHeader = styled(Header)`
-  background: ${colors.primaryColor};
-  color: ${colors.textColor};
+  background: ${({ theme }) => theme.color.primaryColor};
+  color: ${({ theme }) => theme.color.textColor};
   font-size: 20px;
 `
 
 const StyledSider = styled(Sider)`
-  background: ${colors.background};
+  background: ${({ theme }) => theme.color.background};
 `
 
 export default CustomLayout
