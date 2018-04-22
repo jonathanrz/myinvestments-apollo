@@ -6,6 +6,7 @@ import mutation from '../mutations/Login'
 
 import Layout from 'app/components/Layout'
 import LoginForm from 'app/components/LoginForm'
+import Loader from 'app/components/Loader'
 
 class Login extends React.Component {
   executeLogin = ({ email, password }) => {
@@ -30,7 +31,7 @@ class Login extends React.Component {
     return (
       <Layout title="Entrar" sider={false} footer={false}>
         {loading ? (
-          <div>Executando login</div>
+          <Loader message={'Executando Login'} />
         ) : errors ? (
           this.renderErrors(errors)
         ) : (
