@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { StrictMode } from 'react'
 import styled from 'styled-components'
 import { Layout } from 'antd'
 
@@ -7,13 +7,15 @@ import colors from 'app/theme/colors'
 const { Header, Sider, Content } = Layout
 
 const CustomLayout = ({ title, sider = true, footer = true, children }) => (
-  <StyledLayout>
-    <StyledHeader>{title}</StyledHeader>
-    <Layout>
-      {sider && <StyledSider>Sider</StyledSider>}
-      <Content>{children}</Content>
-    </Layout>
-  </StyledLayout>
+  <StrictMode>
+    <StyledLayout>
+      <StyledHeader>{title}</StyledHeader>
+      <Layout>
+        {sider && <StyledSider>Sider</StyledSider>}
+        <Content>{children}</Content>
+      </Layout>
+    </StyledLayout>
+  </StrictMode>
 )
 
 const StyledLayout = styled(Layout)`
