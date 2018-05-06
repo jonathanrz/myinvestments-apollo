@@ -19,6 +19,7 @@
     "babel-plugin-import": "1.6.7",
     "babel-plugin-module-resolver": "3.1.0",
     "graphql": "0.13.2",
+    "lodash": "^4.17.10",
     "nwb": "0.21.x",
     "react": "16.3.2",
     "react-apollo": "2.1.3",
