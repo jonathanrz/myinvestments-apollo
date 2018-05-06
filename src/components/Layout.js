@@ -3,28 +3,16 @@ import styled, { ThemeProvider } from 'styled-components'
 import { Layout } from 'antd'
 
 import theme from 'app/theme'
+import { fromTheme } from 'app/utils/theme'
 
 const { Header, Sider, Content } = Layout
-
-const CustomLayout = ({ title, sider = true, footer = true, children }) => (
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <StyledLayout>
-        <StyledHeader>{title}</StyledHeader>
-        <StyledMainLayout>
-          {sider && <StyledSider>Sider</StyledSider>}
-          <Content>{children}</Content>
-        </StyledMainLayout>
-      </StyledLayout>
-    </ThemeProvider>
-  </StrictMode>
-)
 
 const StyledLayout = styled(Layout)`
   display: flex;
   height: 100vh;
   margin: auto;
   max-width: 1280px;
+  font-family: ${fromTheme('font.defaultFont')};
 `
 
 const StyledMainLayout = styled(Layout)`
@@ -42,5 +30,19 @@ const StyledSider = styled(Sider)`
   min-width: 150px;
   width: 10%;
 `
+
+const CustomLayout = ({ title, sider = true, footer = true, children }) => (
+  <StrictMode>
+    <ThemeProvider theme={theme}>
+      <StyledLayout>
+        <StyledHeader>{title}</StyledHeader>
+        <StyledMainLayout>
+          {sider && <StyledSider>Sider</StyledSider>}
+          <Content>{children}</Content>
+        </StyledMainLayout>
+      </StyledLayout>
+    </ThemeProvider>
+  </StrictMode>
+)
 
 export default CustomLayout

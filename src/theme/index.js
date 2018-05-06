@@ -9,5 +9,11 @@ export default {
     primaryText: '#212121',
     secondaryText: '#757575',
     divider: '#BDBDBD'
+  },
+  font: {
+    defaultFont: 'Roboto'
+  },
+  spacing: {
+    default: '20px'
   }
 }

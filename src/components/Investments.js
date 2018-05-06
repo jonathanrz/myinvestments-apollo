@@ -1,6 +1,7 @@
 import React from 'react'
 import { Query } from 'react-apollo'
 import { Table } from 'antd'
+import { Redirect } from 'react-router-dom'
 
 import Loader from 'app/components/Loader'
 import query from 'app/queries/Investments'
@@ -28,8 +29,29 @@ const columns = [
   }
 ]
 
-const Investments = ({ data }) => {
-  return <Table dataSource={data} columns={columns} />
+class Investments extends React.Component {
+  state = {
+    redirectTo: undefined
+  }
+
+  render() {
+    const { data } = this.props
+    const { redirectTo } = this.state
+
+    return redirectTo ? (
+      <Redirect to={{ pathname: `/investment/${redirectTo}`, state: { uuid: redirectTo } }} />
+    ) : (
+      <Table
+        dataSource={data}
+        columns={columns}
+        onRow={record => {
+          return {
+            onClick: () => this.setState({ redirectTo: record.uuid })
+          }
+        }}
+      />
+    )
+  }
 }
 
 const InvestmentsQuery = () => (
