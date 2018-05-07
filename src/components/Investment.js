@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import { Table } from 'antd'
 
 import Loader from 'app/components/Loader'
+import DateField from 'app/components/DateField'
 import FieldWithLabel from 'app/components/FieldWithLabel'
 import Label from 'app/components/Label'
 import query from 'app/queries/Investment'
@@ -54,7 +55,7 @@ const Investment = ({ data }) => {
         <FieldWithLabel label="Tipo" field={data.type} />
         <FieldWithLabel label="Detentor" field={data.holder} />
         <FieldWithLabel label="Objetivo" field={data.objective} />
-        <FieldWithLabel label="Data Vencimento" field={data.dueDate} />
+        <DateField label="Data Vencimento" date={data.dueDate} />
       </Details>
       <TableContainer>
         <Table
