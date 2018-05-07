@@ -16,7 +16,7 @@ const Content = styled.div`
   display: flex;
   height: 100vh;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
 `
 
 const Message = styled.div`
