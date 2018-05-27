@@ -28,7 +28,7 @@ const Details = styled.div`
 `
 
 const columns = [
-  { title: 'Data', key: 'date', width: '12.5%' },
+  { title: 'Data', key: 'date', width: '12.5%', type: 'date' },
   { title: 'Quantidade', key: 'quantity', width: '12.5%' },
   { title: 'Valor', key: 'value', width: '12.5%' },
   { title: 'Comprado', key: 'bought', width: '12.5%' },
@@ -46,7 +46,7 @@ const Investment = ({ data }) => {
         <FieldWithLabel label="Tipo" field={data.type} />
         <FieldWithLabel label="Detentor" field={data.holder} />
         <FieldWithLabel label="Objetivo" field={data.objective} />
-        <DateField label="Data Vencimento" date={data.dueDate} />
+        {data.dueDate && <DateField label="Data Vencimento" date={data.dueDate} />}
       </Details>
       <TableContainer>
         <Table data={data.incomes} columns={columns} />

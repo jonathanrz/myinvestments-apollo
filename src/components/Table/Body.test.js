@@ -32,4 +32,13 @@ describe('TableBody', () => {
     validateRow(rows.at(0), columns, data[0])
     validateRow(rows.at(1), columns, data[1])
   })
+
+  it('renders date cell', () => {
+    const columns = [{ key: 'date', width: '100%', type: 'date' }]
+    const data = [{ date: 1527460426 }]
+    const wrapper = shallow(<Body columns={columns} data={data} />)
+    const rows = findDataTest(wrapper, 'row')
+    expectToHaveLength(rows, data.length)
+    expectToHaveText(findDataTest(rows.at(0), 'cell').at(0), '27/05/2018')
+  })
 })

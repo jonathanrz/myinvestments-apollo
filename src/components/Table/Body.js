@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { formatDate } from 'app/utils/date'
 import { fromProp } from 'app/utils/theme'
 
 import { cellStyle } from './Cell'
@@ -20,7 +21,7 @@ function BodyComponent({ columns, data }) {
         <Row key={index} data-test="row">
           {columns.map((column, rowIndex) => (
             <Cell key={`${index}-${rowIndex}`} width={column.width} data-test="cell">
-              {element[column.key]}
+              {column.type == 'date' ? formatDate(element[column.key]) : element[column.key]}
             </Cell>
           ))}
         </Row>
