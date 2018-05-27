@@ -1,7 +1,12 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { findDataTest, expectToHaveLength, expectToHaveText } from 'app/utils/tests'
+import {
+  findDataTest,
+  expectToHaveLength,
+  expectToHaveText,
+  expectToHaveProp
+} from 'app/utils/tests'
 
 import Body from './Body'
 
@@ -10,13 +15,13 @@ function validateRow(row, columns, element) {
   expectToHaveLength(cells, columns.length)
   columns.forEach((column, index) => {
     expectToHaveText(cells.at(index), element[column.key])
-    expectToHaveText(cells.at(index), element[column.key])
+    expectToHaveProp(cells.at(index), { width: column.width })
   })
 }
 
 describe('TableBody', () => {
   it('renders body as expected', () => {
-    const columns = [{ key: 'element1' }, { key: 'element2' }]
+    const columns = [{ key: 'element1', width: '75%' }, { key: 'element2', width: '25%' }]
     const data = [
       { element1: 'element11', element2: 'element12' },
       { element1: 'element21', element2: 'element22' }

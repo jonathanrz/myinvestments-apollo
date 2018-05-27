@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Query } from 'react-apollo'
-import { Table } from 'antd'
 
 import Loader from 'app/components/Loader'
 import DateField from 'app/components/DateField'
 import FieldWithLabel from 'app/components/FieldWithLabel'
-import Label from 'app/components/Label'
+import Table from 'app/components/Table'
 import query from 'app/queries/Investment'
 import { fromTheme } from 'app/utils/theme'
 
@@ -39,14 +38,6 @@ const columns = [
   { title: 'Taxa', key: 'fee' }
 ]
 
-function toColumnInfo(column) {
-  return {
-    title: column.title,
-    dataIndex: column.key,
-    key: column.key
-  }
-}
-
 const Investment = ({ data }) => {
   return (
     <Page>
@@ -58,11 +49,7 @@ const Investment = ({ data }) => {
         <DateField label="Data Vencimento" date={data.dueDate} />
       </Details>
       <TableContainer>
-        <Table
-          dataSource={data.incomes}
-          columns={columns.map(toColumnInfo)}
-          title={() => <Label>Recebimentos</Label>}
-        />
+        <Table data={data.incomes} columns={columns} />
       </TableContainer>
     </Page>
   )

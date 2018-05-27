@@ -9,5 +9,9 @@ export function expectToHaveLength(wrapper, length) {
 }
 
 export function expectToHaveText(wrapper, text) {
-  expect(wrapper.props()).toInclude({ children: text })
+  expectToHaveProp(wrapper, { children: text })
+}
+
+export function expectToHaveProp(wrapper, prop) {
+  expect(wrapper.props()).toInclude(prop)
 }
