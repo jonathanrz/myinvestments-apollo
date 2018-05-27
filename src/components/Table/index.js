@@ -4,7 +4,9 @@ import styled from 'styled-components'
 import Header from './Header'
 import Body from './Body'
 
-const Table = styled.table``
+const Table = styled.table`
+  width: 100%;
+`
 
 function TableComponent({ columns, data }) {
   return (

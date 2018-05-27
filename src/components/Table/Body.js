@@ -3,12 +3,14 @@ import styled from 'styled-components'
 
 import { fromProp } from 'app/utils/theme'
 
+import { cellStyle } from './Cell'
+
 const Body = styled.tbody``
 
 const Row = styled.tr``
 
 const Cell = styled.td`
-  width: ${fromProp('width')};
+  ${cellStyle(fromProp('width'))};
 `
 
 function BodyComponent({ columns, data }) {

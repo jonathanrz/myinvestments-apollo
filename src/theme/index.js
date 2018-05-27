@@ -8,12 +8,14 @@ export default {
     textColor: '#FFFFFF',
     primaryText: '#212121',
     secondaryText: '#757575',
-    divider: '#BDBDBD'
+    divider: '#BDBDBD',
+    width: '#FFFFFF'
   },
   font: {
     defaultFont: 'Roboto'
   },
   spacing: {
-    default: '20px'
+    default: '20px',
+    big: '50px'
   }
 }

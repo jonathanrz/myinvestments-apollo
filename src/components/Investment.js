@@ -14,7 +14,7 @@ const Page = styled.div`
 `
 
 const TableContainer = styled.div`
-  margin-top: ${fromTheme('spacing.default')};
+  margin-top: ${fromTheme('spacing.big')};
 `
 
 const Details = styled.div`
@@ -28,14 +28,14 @@ const Details = styled.div`
 `
 
 const columns = [
-  { title: 'Data', key: 'date' },
-  { title: 'Quantidade', key: 'quantity' },
-  { title: 'Valor', key: 'value' },
-  { title: 'Comprado', key: 'bought' },
-  { title: 'Vendido', key: 'sold' },
-  { title: 'Rendimento', key: 'gross' },
-  { title: 'IR', key: 'ir' },
-  { title: 'Taxa', key: 'fee' }
+  { title: 'Data', key: 'date', width: '12.5%' },
+  { title: 'Quantidade', key: 'quantity', width: '12.5%' },
+  { title: 'Valor', key: 'value', width: '12.5%' },
+  { title: 'Comprado', key: 'bought', width: '12.5%' },
+  { title: 'Vendido', key: 'sold', width: '12.5%' },
+  { title: 'Rendimento', key: 'gross', width: '12.5%' },
+  { title: 'IR', key: 'ir', width: '12.5%' },
+  { title: 'Taxa', key: 'fee', width: '12.5%' }
 ]
 
 const Investment = ({ data }) => {

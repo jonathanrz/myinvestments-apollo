@@ -1,12 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { fromProp } from 'app/utils/theme'
+import { cellStyle } from './Cell'
 
-const Header = styled.thead``
+import { fromProp, fromTheme } from 'app/utils/theme'
+
+const Header = styled.thead`
+  background-color: ${fromTheme('color.darkPrimaryColors')};
+  border-radius: 10px 10px 0 0;
+  color: ${fromTheme('color.width')};
+`
 
 const HeaderCell = styled.th`
-  width: ${fromProp('width')};
+  ${cellStyle(fromProp('width'))};
 `
 
 function HeaderComponent({ columns }) {
