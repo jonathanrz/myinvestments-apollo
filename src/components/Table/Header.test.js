@@ -7,7 +7,7 @@ import Header from './Header'
 
 describe('TableHeader', () => {
   it('renders headers as expected', () => {
-    const columns = [{ name: 'row1' }, { name: 'row2' }]
+    const columns = [{ title: 'row1' }, { title: 'row2' }]
     const wrapper = shallow(<Header columns={columns} />)
     const cells = findDataTest(wrapper, 'cell')
     expectToHaveLength(cells, columns.length)

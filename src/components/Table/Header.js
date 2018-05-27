@@ -11,7 +11,7 @@ function HeaderComponent({ columns }) {
       <tr>
         {columns.map((column, index) => (
           <HeaderCell key={index} data-test="cell">
-            {column.name}
+            {column.title}
           </HeaderCell>
         ))}
       </tr>
