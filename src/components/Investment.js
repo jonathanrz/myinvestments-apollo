@@ -1,12 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Query } from 'react-apollo'
-import { Table } from 'antd'
 
 import Loader from 'app/components/Loader'
 import DateField from 'app/components/DateField'
 import FieldWithLabel from 'app/components/FieldWithLabel'
-import Label from 'app/components/Label'
+import Table from 'app/components/Table'
 import query from 'app/queries/Investment'
 import { fromTheme } from 'app/utils/theme'
 
@@ -15,7 +14,7 @@ const Page = styled.div`
 `
 
 const TableContainer = styled.div`
-  margin-top: ${fromTheme('spacing.default')};
+  margin-top: ${fromTheme('spacing.big')};
 `
 
 const Details = styled.div`
@@ -29,23 +28,15 @@ const Details = styled.div`
 `
 
 const columns = [
-  { title: 'Data', key: 'date' },
-  { title: 'Quantidade', key: 'quantity' },
-  { title: 'Valor', key: 'value' },
-  { title: 'Comprado', key: 'bought' },
-  { title: 'Vendido', key: 'sold' },
-  { title: 'Rendimento', key: 'gross' },
-  { title: 'IR', key: 'ir' },
-  { title: 'Taxa', key: 'fee' }
+  { title: 'Data', key: 'date', width: '12.5%', type: 'date' },
+  { title: 'Quantidade', key: 'quantity', width: '12.5%' },
+  { title: 'Valor', key: 'value', width: '12.5%' },
+  { title: 'Comprado', key: 'bought', width: '12.5%' },
+  { title: 'Vendido', key: 'sold', width: '12.5%' },
+  { title: 'Rendimento', key: 'gross', width: '12.5%' },
+  { title: 'IR', key: 'ir', width: '12.5%' },
+  { title: 'Taxa', key: 'fee', width: '12.5%' }
 ]
-
-function toColumnInfo(column) {
-  return {
-    title: column.title,
-    dataIndex: column.key,
-    key: column.key
-  }
-}
 
 const Investment = ({ data }) => {
   return (
@@ -55,14 +46,10 @@ const Investment = ({ data }) => {
         <FieldWithLabel label="Tipo" field={data.type} />
         <FieldWithLabel label="Detentor" field={data.holder} />
         <FieldWithLabel label="Objetivo" field={data.objective} />
-        <DateField label="Data Vencimento" date={data.dueDate} />
+        {data.dueDate && <DateField label="Data Vencimento" date={data.dueDate} />}
       </Details>
       <TableContainer>
-        <Table
-          dataSource={data.incomes}
-          columns={columns.map(toColumnInfo)}
-          title={() => <Label>Recebimentos</Label>}
-        />
+        <Table data={data.incomes} columns={columns} />
       </TableContainer>
     </Page>
   )
