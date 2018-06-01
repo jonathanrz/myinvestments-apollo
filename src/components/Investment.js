@@ -29,13 +29,13 @@ const Details = styled.div`
 
 const columns = [
   { title: 'Data', key: 'date', width: '12.5%', type: 'date' },
-  { title: 'Quantidade', key: 'quantity', width: '12.5%' },
-  { title: 'Valor', key: 'value', width: '12.5%' },
-  { title: 'Comprado', key: 'bought', width: '12.5%' },
-  { title: 'Vendido', key: 'sold', width: '12.5%' },
-  { title: 'Rendimento', key: 'gross', width: '12.5%' },
-  { title: 'IR', key: 'ir', width: '12.5%' },
-  { title: 'Taxa', key: 'fee', width: '12.5%' }
+  { title: 'Quantidade', key: 'quantity', width: '12.5%', type: 'number' },
+  { title: 'Valor', key: 'value', width: '12.5%', type: 'currency' },
+  { title: 'Comprado', key: 'bought', width: '12.5%', type: 'currency' },
+  { title: 'Vendido', key: 'sold', width: '12.5%', type: 'currency' },
+  { title: 'Rendimento', key: 'gross', width: '12.5%', type: 'currency' },
+  { title: 'IR', key: 'ir', width: '12.5%', type: 'currency' },
+  { title: 'Taxa', key: 'fee', width: '12.5%', type: 'currency' }
 ]
 
 const Investment = ({ data }) => {
