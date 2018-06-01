@@ -21,7 +21,12 @@ function BodyComponent({ columns, data }) {
         <Row key={index} data-test="row">
           {columns.map((column, rowIndex) => (
             <Cell key={`${index}-${rowIndex}`} width={column.width} data-test="cell">
-              {column.type == 'date' ? formatDate(element[column.key]) : element[column.key]}
+              {
+                {
+                  date: formatDate(element[column.key]),
+                  text: element[column.key]
+                }[column.type]
+              }
             </Cell>
           ))}
         </Row>

@@ -21,7 +21,10 @@ function validateRow(row, columns, element) {
 
 describe('TableBody', () => {
   it('renders body as expected', () => {
-    const columns = [{ key: 'element1', width: '75%' }, { key: 'element2', width: '25%' }]
+    const columns = [
+      { key: 'element1', width: '75%', type: 'text' },
+      { key: 'element2', width: '25%', type: 'text' }
+    ]
     const data = [
       { element1: 'element11', element2: 'element12' },
       { element1: 'element21', element2: 'element22' }
