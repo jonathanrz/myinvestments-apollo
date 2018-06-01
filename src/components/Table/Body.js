@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { formatDate, formatCurrency } from 'app/utils/format'
+import { formatDate, formatCurrency, formatNumber } from 'app/utils/format'
 import { fromProp } from 'app/utils/theme'
 
 import { cellStyle } from './Cell'
@@ -23,8 +23,9 @@ function BodyComponent({ columns, data }) {
             <Cell key={`${index}-${rowIndex}`} width={column.width} data-test="cell">
               {
                 {
-                  date: formatDate(element[column.key]),
                   currency: formatCurrency(element[column.key]),
+                  date: formatDate(element[column.key]),
+                  number: formatNumber(element[column.key]),
                   text: element[column.key]
                 }[column.type]
               }
