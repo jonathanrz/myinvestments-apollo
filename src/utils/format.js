@@ -10,14 +10,14 @@ function isFloat(n) {
 }
 
 export function formatCurrency(value) {
-  if (!value) return 'Invalid Currency'
+  if (value === undefined || value == null) return 'Invalid Currency'
   if (isFloat(value)) value = value.toFixed(2)
   else value = value.toString() + '.00'
   return '$' + value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
 }
 
 export function formatNumber(value) {
-  if (!value) return 'Invalid Value'
+  if (value === undefined || value == null) return 'Invalid Value'
   if (isFloat(value)) value = value.toFixed(3)
   else value = value.toString()
   return value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')

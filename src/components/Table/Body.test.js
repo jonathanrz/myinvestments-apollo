@@ -73,6 +73,11 @@ describe('TableBody', () => {
     renderAndValidateCell(columns, [{ value: null }], 'Invalid Currency')
   })
 
+  it('renders zero currency cell', () => {
+    const columns = [{ key: 'value', width: '100%', type: 'currency' }]
+    renderAndValidateCell(columns, [{ value: 0 }], '$0.00')
+  })
+
   it('renders number cell', () => {
     const columns = [{ key: 'value', width: '100%', type: 'number' }]
     renderAndValidateCell(columns, [{ value: 1 }], '1')
@@ -91,5 +96,10 @@ describe('TableBody', () => {
   it('renders invalid number cell', () => {
     const columns = [{ key: 'value', width: '100%', type: 'number' }]
     renderAndValidateCell(columns, [{ value: null }], 'Invalid Value')
+  })
+
+  it('renders zero number cell', () => {
+    const columns = [{ key: 'value', width: '100%', type: 'number' }]
+    renderAndValidateCell(columns, [{ value: 0 }], '0')
   })
 })
