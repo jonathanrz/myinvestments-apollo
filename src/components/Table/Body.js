@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { formatDate } from 'app/utils/date'
+import { formatDate, formatCurrency } from 'app/utils/format'
 import { fromProp } from 'app/utils/theme'
 
 import { cellStyle } from './Cell'
@@ -24,6 +24,7 @@ function BodyComponent({ columns, data }) {
               {
                 {
                   date: formatDate(element[column.key]),
+                  currency: formatCurrency(element[column.key]),
                   text: element[column.key]
                 }[column.type]
               }

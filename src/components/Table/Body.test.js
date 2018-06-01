@@ -44,4 +44,31 @@ describe('TableBody', () => {
     expectToHaveLength(rows, data.length)
     expectToHaveText(findDataTest(rows.at(0), 'cell').at(0), '27/05/2018')
   })
+
+  it('renders currency cell', () => {
+    const columns = [{ key: 'value', width: '100%', type: 'currency' }]
+    const data = [{ value: 1234.56 }]
+    const wrapper = shallow(<Body columns={columns} data={data} />)
+    const rows = findDataTest(wrapper, 'row')
+    expectToHaveLength(rows, data.length)
+    expectToHaveText(findDataTest(rows.at(0), 'cell').at(0), '$1,234.56')
+  })
+
+  it('renders currency cell rounded', () => {
+    const columns = [{ key: 'value', width: '100%', type: 'currency' }]
+    const data = [{ value: 0.129 }]
+    const wrapper = shallow(<Body columns={columns} data={data} />)
+    const rows = findDataTest(wrapper, 'row')
+    expectToHaveLength(rows, data.length)
+    expectToHaveText(findDataTest(rows.at(0), 'cell').at(0), '$0.13')
+  })
+
+  it('renders int currency cell', () => {
+    const columns = [{ key: 'value', width: '100%', type: 'currency' }]
+    const data = [{ value: 1234 }]
+    const wrapper = shallow(<Body columns={columns} data={data} />)
+    const rows = findDataTest(wrapper, 'row')
+    expectToHaveLength(rows, data.length)
+    expectToHaveText(findDataTest(rows.at(0), 'cell').at(0), '$1,234.00')
+  })
 })

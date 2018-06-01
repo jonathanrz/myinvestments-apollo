@@ -1,5 +1,5 @@
 import React from 'react'
-import { formatDate } from 'app/utils/date'
+import { formatDate } from 'app/utils/format'
 
 import FieldWithLabel from 'app/components/FieldWithLabel'
 
