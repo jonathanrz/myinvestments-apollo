@@ -17,6 +17,7 @@ const StyledLayout = styled(Layout)`
 
 const StyledMainLayout = styled(Layout)`
   flex: 1 0 0;
+  margin: 10px;
 `
 
 const StyledHeader = styled(Header)`
