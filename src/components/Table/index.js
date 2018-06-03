@@ -8,11 +8,11 @@ const Table = styled.table`
   width: 100%;
 `
 
-function TableComponent({ columns, data }) {
+function TableComponent({ columns, data, onRow }) {
   return (
     <Table>
       <Header columns={columns} />
-      <Body columns={columns} data={data} />
+      <Body columns={columns} data={data} onRow={onRow} />
     </Table>
   )
 }

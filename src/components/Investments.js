@@ -1,31 +1,35 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { Table } from 'antd'
 import { Redirect } from 'react-router-dom'
 
 import Loader from 'app/components/Loader'
+import Table from 'app/components/Table'
 import query from 'app/queries/Investments'
 
 const columns = [
   {
     title: 'Nome',
-    dataIndex: 'name',
-    key: 'name'
+    key: 'name',
+    width: '25%',
+    type: 'text'
   },
   {
     title: 'Tipo',
-    dataIndex: 'type',
-    key: 'type'
+    key: 'type',
+    width: '25%',
+    type: 'text'
   },
   {
     title: 'Detentor',
-    dataIndex: 'holder',
-    key: 'holder'
+    key: 'holder',
+    width: '25%',
+    type: 'text'
   },
   {
     title: 'Objetivo',
-    dataIndex: 'objective',
-    key: 'objective'
+    key: 'objective',
+    width: '25%',
+    type: 'text'
   }
 ]
 
@@ -42,13 +46,9 @@ class Investments extends React.Component {
       <Redirect to={{ pathname: `/investment/${redirectTo}`, state: { uuid: redirectTo } }} />
     ) : (
       <Table
-        dataSource={data}
+        data={data}
         columns={columns}
-        onRow={record => {
-          return {
-            onClick: () => this.setState({ redirectTo: record.uuid })
-          }
-        }}
+        onRow={record => this.setState({ redirectTo: record.uuid })}
       />
     )
   }
