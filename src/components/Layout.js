@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react'
+import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
 import { Layout } from 'antd'
 
@@ -33,17 +33,15 @@ const StyledSider = styled(Sider)`
 `
 
 const CustomLayout = ({ title, sider = true, footer = true, children }) => (
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <StyledLayout>
-        <StyledHeader>{title}</StyledHeader>
-        <StyledMainLayout>
-          {sider && <StyledSider>Sider</StyledSider>}
-          <Content>{children}</Content>
-        </StyledMainLayout>
-      </StyledLayout>
-    </ThemeProvider>
-  </StrictMode>
+  <ThemeProvider theme={theme}>
+    <StyledLayout>
+      <StyledHeader>{title}</StyledHeader>
+      <StyledMainLayout>
+        {sider && <StyledSider>Sider</StyledSider>}
+        <Content>{children}</Content>
+      </StyledMainLayout>
+    </StyledLayout>
+  </ThemeProvider>
 )
 
 export default CustomLayout
