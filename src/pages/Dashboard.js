@@ -12,7 +12,7 @@ const Title = styled.h2`
 
 const Dashboard = () => {
   return (
-    <Layout title="Dashboard">
+    <Layout title="Dashboard" menus={[{ to: '/new-investment', label: 'Novo Investimento' }]}>
       <Title>Investimentos</Title>
       <Investments />
     </Layout>
