@@ -48,7 +48,7 @@ const StyledSider = styled(Sider)`
   width: 10%;
 `
 
-const CustomLayout = ({ title, menus = [], sider = true, footer = true, children }) => (
+const CustomLayout = ({ title, menus = [], sider = true, children }) => (
   <ThemeProvider theme={theme}>
     <StyledLayout>
       <StyledHeader>

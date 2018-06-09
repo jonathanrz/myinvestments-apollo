@@ -7,7 +7,7 @@ import Body from './Body'
 
 function InvestmentPage({ match }) {
   return (
-    <Layout title="Investimento">
+    <Layout title="Investimento" menus={[{ to: '/', label: 'Investimentos' }]}>
       <Body uuid={match.params.uuid} />
     </Layout>
   )

@@ -30,7 +30,7 @@ class Login extends React.Component {
     const { loading, errors } = this.props.response
 
     return (
-      <Layout title="Entrar" sider={false} footer={false}>
+      <Layout title="Entrar" sider={false}>
         {loading ? (
           <Loader message={'Executando Login'} />
         ) : errors ? (

@@ -7,7 +7,7 @@ const Container = styled.div`
   margin: 50px;
 `
 
-class LoginForm extends React.Component {
+class NewInvestmentForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
@@ -54,4 +54,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default Form.create()(LoginForm)
+export default Form.create()(NewInvestmentForm)
