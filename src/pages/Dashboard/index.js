@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import requireAuth from 'app/lib/requireAuth'
-
 import Layout from 'app/components/Layout'
-import Investments from 'app/components/Investments'
+
+import Investments from './Investments'
 
 const Title = styled.h2`
   margin: 50px 0;
