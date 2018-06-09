@@ -1,5 +1,6 @@
-import React, { StrictMode } from 'react'
+import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
+import { Link as RouterLink } from 'react-router-dom'
 import { Layout } from 'antd'
 
 import theme from 'app/theme'
@@ -17,12 +18,28 @@ const StyledLayout = styled(Layout)`
 
 const StyledMainLayout = styled(Layout)`
   flex: 1 0 0;
+  margin: 10px;
 `
 
 const StyledHeader = styled(Header)`
   background: ${({ theme }) => theme.color.primaryColor};
+  display: flex;
+`
+
+const Title = styled.p`
   color: ${({ theme }) => theme.color.textColor};
   font-size: 20px;
+  flex-grow: 1;
+`
+
+const Link = styled(RouterLink)`
+  color: ${({ theme }) => theme.color.textColor};
+  font-size: 16px;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.textColor};
+    text-decoration: underline;
+  }
 `
 
 const StyledSider = styled(Sider)`
@@ -31,18 +48,23 @@ const StyledSider = styled(Sider)`
   width: 10%;
 `
 
-const CustomLayout = ({ title, sider = true, footer = true, children }) => (
-  <StrictMode>
-    <ThemeProvider theme={theme}>
-      <StyledLayout>
-        <StyledHeader>{title}</StyledHeader>
-        <StyledMainLayout>
-          {sider && <StyledSider>Sider</StyledSider>}
-          <Content>{children}</Content>
-        </StyledMainLayout>
-      </StyledLayout>
-    </ThemeProvider>
-  </StrictMode>
+const CustomLayout = ({ title, menus = [], sider = true, children }) => (
+  <ThemeProvider theme={theme}>
+    <StyledLayout>
+      <StyledHeader>
+        <Title>{title}</Title>
+        {menus.map(menu => (
+          <Link key={menu.label} to={menu.to}>
+            {menu.label}
+          </Link>
+        ))}
+      </StyledHeader>
+      <StyledMainLayout>
+        {sider && <StyledSider>Sider</StyledSider>}
+        <Content>{children}</Content>
+      </StyledMainLayout>
+    </StyledLayout>
+  </ThemeProvider>
 )
 
 export default CustomLayout

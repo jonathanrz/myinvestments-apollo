@@ -7,6 +7,7 @@ import { ApolloProvider } from 'react-apollo'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Investment from './pages/Investment'
+import NewInvestment from './pages/NewInvestment'
 
 const client = new ApolloClient({
   uri: __MYINVESTMENTS_API__, //eslint-disable-line no-undef
@@ -28,6 +29,7 @@ const ApolloApp = () => (
       <div>
         <Route exact path="/" component={Dashboard} />
         <Route path="/login" component={Login} />
+        <Route path="/new-investment" component={NewInvestment} />
         <Route path="/investment/:uuid" component={Investment} />
       </div>
     </Router>

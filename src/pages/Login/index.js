@@ -2,11 +2,12 @@ import React from 'react'
 import { Mutation } from 'react-apollo'
 import { withRouter } from 'react-router-dom'
 
-import mutation from '../mutations/Login'
+import mutation from 'app/mutations/Login'
 
 import Layout from 'app/components/Layout'
-import LoginForm from 'app/components/LoginForm'
 import Loader from 'app/components/Loader'
+
+import LoginForm from './Form'
 
 class Login extends React.Component {
   executeLogin = ({ email, password }) => {
@@ -29,7 +30,7 @@ class Login extends React.Component {
     const { loading, errors } = this.props.response
 
     return (
-      <Layout title="Entrar" sider={false} footer={false}>
+      <Layout title="Entrar" sider={false}>
         {loading ? (
           <Loader message={'Executando Login'} />
         ) : errors ? (
