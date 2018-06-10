@@ -7,30 +7,11 @@ import Table from 'app/components/Table'
 import query from 'app/queries/Investments'
 
 const columns = [
-  {
-    title: 'Nome',
-    key: 'name',
-    width: '25%',
-    type: 'text'
-  },
-  {
-    title: 'Tipo',
-    key: 'type',
-    width: '25%',
-    type: 'text'
-  },
-  {
-    title: 'Detentor',
-    key: 'holder',
-    width: '25%',
-    type: 'text'
-  },
-  {
-    title: 'Objetivo',
-    key: 'objective',
-    width: '25%',
-    type: 'text'
-  }
+  { title: 'Nome', key: 'name', width: '20%', type: 'text' },
+  { title: 'Tipo', key: 'type', width: '20%', type: 'text' },
+  { title: 'Detentor', key: 'holder', width: '20%', type: 'text' },
+  { title: 'Objetivo', key: 'objective', width: '20%', type: 'text' },
+  { title: 'Data Vencimento', key: 'dueDate', width: '20%', type: 'date' }
 ]
 
 class Investments extends React.Component {

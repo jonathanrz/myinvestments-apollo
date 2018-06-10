@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Form, Input, Button } from 'antd'
+import { Form, DatePicker, Input, Button } from 'antd'
 
 const Container = styled.div`
   max-width: 600px;
@@ -10,10 +10,17 @@ const Container = styled.div`
 class LoginForm extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
-    this.props.form.validateFields((err, values) => {
-      if (!err) this.props.createInvestment(values)
+    this.props.form.validateFields((err, fieldsValue) => {
+      if (err) return
+      const values = { ...fieldsValue }
+      if (values.dueDate) values.dueDate = parseInt(fieldsValue.dueDate.format('X'))
+
+      this.props.createInvestment(values)
     })
   }
+
+  getFieldDecorator = fieldName =>
+    this.props.form.getFieldDecorator(fieldName, { rules: [{ required: false }] })
 
   getRequiredFieldDecorator = (fieldName, message) =>
     this.props.form.getFieldDecorator(fieldName, { rules: [{ required: true, message }] })
@@ -43,6 +50,11 @@ class LoginForm extends React.Component {
               'objective',
               'Por favor informe o objetivo do investimento'
             )(<Input placeholder="Objetivo" />)}
+          </Form.Item>
+          <Form.Item>
+            {this.getFieldDecorator('dueDate')(
+              <DatePicker format="DD/MM/YYYY" placeholder="Data de vencimento" />
+            )}
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
