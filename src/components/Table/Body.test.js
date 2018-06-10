@@ -50,7 +50,7 @@ describe('TableBody', () => {
 
   it('renders invalid date cell', () => {
     const columns = [{ key: 'date', width: '100%', type: 'date' }]
-    renderAndValidateCell(columns, [{ date: null }], 'Invalid Date')
+    renderAndValidateCell(columns, [{ date: 0 }], 'Data inválida')
   })
 
   it('renders currency cell', () => {
@@ -70,7 +70,7 @@ describe('TableBody', () => {
 
   it('renders invalid currency cell', () => {
     const columns = [{ key: 'value', width: '100%', type: 'currency' }]
-    renderAndValidateCell(columns, [{ value: null }], 'Invalid Currency')
+    renderAndValidateCell(columns, [{ value: null }], 'Valor inválido')
   })
 
   it('renders zero currency cell', () => {
@@ -95,7 +95,7 @@ describe('TableBody', () => {
 
   it('renders invalid number cell', () => {
     const columns = [{ key: 'value', width: '100%', type: 'number' }]
-    renderAndValidateCell(columns, [{ value: null }], 'Invalid Value')
+    renderAndValidateCell(columns, [{ value: null }], 'Valor inválido')
   })
 
   it('renders zero number cell', () => {

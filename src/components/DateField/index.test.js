@@ -11,11 +11,16 @@ describe('DateField', () => {
 
   it('renders empty date when date not provided', () => {
     const wrapper = shallow(<DateField />)
-    expect(wrapper.props()).toInclude({ field: 'Invalid Date' })
+    expect(wrapper.props()).toInclude({ field: 'Não informada' })
   })
 
   it('renders empty date when date is null', () => {
     const wrapper = shallow(<DateField date={null} />)
-    expect(wrapper.props()).toInclude({ field: 'Invalid Date' })
+    expect(wrapper.props()).toInclude({ field: 'Não informada' })
+  })
+
+  it('renders invalid date when date is zero', () => {
+    const wrapper = shallow(<DateField date={0} />)
+    expect(wrapper.props()).toInclude({ field: 'Data inválida' })
   })
 })
