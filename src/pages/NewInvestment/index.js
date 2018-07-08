@@ -8,7 +8,7 @@ import mutation from 'app/mutations/CreateInvestment'
 import Layout from 'app/components/Layout'
 import Loader from 'app/components/Loader'
 
-import Form from './Form'
+import Form from 'app/components/investment/Form'
 
 class NewInvestmentPage extends React.Component {
   createInvestment = data => {
@@ -38,7 +38,7 @@ class NewInvestmentPage extends React.Component {
             }}
           />
         ) : (
-          <Form createInvestment={this.createInvestment} />
+          <Form onSubmit={this.createInvestment} />
         )}
       </Layout>
     )
