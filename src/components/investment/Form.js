@@ -33,6 +33,9 @@ class InvestmentForm extends React.Component {
   render() {
     const { investment } = this.props
 
+    let dueDate = get(investment, 'dueDate')
+    if (dueDate) dueDate = moment(dueDate, 'X')
+
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
@@ -65,7 +68,7 @@ class InvestmentForm extends React.Component {
             )(<Input placeholder="Objetivo" />)}
           </Form.Item>
           <Form.Item>
-            {this.getFieldDecorator('dueDate', moment(get(investment, 'dueDate'), 'X'))(
+            {this.getFieldDecorator('dueDate', dueDate)(
               <DatePicker format="DD/MM/YYYY" placeholder="Data de vencimento" />
             )}
           </Form.Item>
