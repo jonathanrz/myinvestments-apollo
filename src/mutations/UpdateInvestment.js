@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 export default gql`
-  mutation CreateInvestment($data: InvestmentInput!) {
-    createInvestment(data: $data) {
+  mutation UpdateInvestment($uuid: String!, $data: InvestmentInput!) {
+    updateInvestment(uuid: $uuid, data: $data) {
       uuid
       name
       type

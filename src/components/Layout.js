@@ -40,6 +40,10 @@ const Link = styled(RouterLink)`
     color: ${({ theme }) => theme.color.textColor};
     text-decoration: underline;
   }
+
+  &:not(last-child) {
+    margin-right: 10px;
+  }
 `
 
 const StyledSider = styled(Sider)`
