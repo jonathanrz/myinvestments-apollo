@@ -9,7 +9,7 @@ import mutation from 'app/mutations/UpdateInvestment'
 import Layout from 'app/components/Layout'
 import Loader from 'app/components/Loader'
 
-import Form from 'app/components/investment/Form'
+import Form from 'app/components/Investment/Form'
 
 class EditInvestmentPage extends React.Component {
   updateInvestment = data => {
