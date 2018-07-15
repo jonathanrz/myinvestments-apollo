@@ -13,7 +13,8 @@ function InvestmentPage({ match }) {
       title="Investimento"
       menus={[
         { to: '/', label: 'Investimentos' },
-        { to: `/investment/${uuid}/edit`, label: 'Editar' }
+        { to: `/investment/${uuid}/edit`, label: 'Editar' },
+        { to: `/investment/${uuid}/add-income`, label: 'Adicionar rendimento' }
       ]}
     >
       <Body uuid={uuid} />
