@@ -36,6 +36,7 @@ class NewInvestmentPage extends React.Component {
               pathname: `/investment/${newInvestmentUuid}`,
               state: { uuid: newInvestmentUuid }
             }}
+            push
           />
         ) : (
           <Form onSubmit={this.createInvestment} />
