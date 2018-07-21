@@ -13,7 +13,7 @@ function isFloat(n) {
 export function formatCurrency(value) {
   if (value === undefined || value == null) return 'Valor inválido'
   if (isFloat(value)) value = value.toFixed(2)
-  else value = value.toString() + '.00'
+  else value = (value / 100).toFixed(2).toString()
   return '$' + value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
 }
 

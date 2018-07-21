@@ -65,7 +65,7 @@ describe('TableBody', () => {
 
   it('renders int currency cell', () => {
     const columns = [{ key: 'value', width: '100%', type: 'currency' }]
-    renderAndValidateCell(columns, [{ value: 1234 }], '$1,234.00')
+    renderAndValidateCell(columns, [{ value: 123456 }], '$1,234.56')
   })
 
   it('renders invalid currency cell', () => {
