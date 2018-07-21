@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Query } from 'react-apollo'
 import { Redirect } from 'react-router-dom'
+import { orderBy } from 'lodash'
 
 import Loader from 'app/components/Loader'
 import DateField from 'app/components/DateField'
@@ -67,7 +68,7 @@ class Investment extends React.Component {
         </Details>
         <TableContainer>
           <Table
-            data={data.incomes}
+            data={orderBy(data.incomes, ['date'], ['desc'])}
             columns={columns}
             onRow={record => this.setState({ redirectTo: record.uuid })}
           />
