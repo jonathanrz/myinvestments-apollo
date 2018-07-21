@@ -4,6 +4,8 @@ import moment from 'moment'
 import { get } from 'lodash'
 import { Form, DatePicker, Input, Button } from 'antd'
 
+import InputCurrency from 'app/components/InputCurrency'
+
 const Container = styled.div`
   max-width: 600px;
   margin: 50px;
@@ -56,32 +58,32 @@ class InvestmentForm extends React.Component {
               'value',
               'Por favor informe o valor',
               get(income, 'value')
-            )(<Input placeholder="Valor" />)}
+            )(<InputCurrency placeholder="Valor" />)}
           </Form.Item>
           <Form.Item>
             {this.getRequiredFieldDecorator(
               'bought',
               'Por favor informe o valor comprado',
               get(income, 'bought')
-            )(<Input placeholder="Comprado" />)}
+            )(<InputCurrency placeholder="Comprado" />)}
           </Form.Item>
           <Form.Item>
             {this.getRequiredFieldDecorator(
               'sold',
               'Por favor informe o valor vendido',
               get(income, 'sold') || 0
-            )(<Input placeholder="Vendido" />)}
+            )(<InputCurrency placeholder="Vendido" />)}
           </Form.Item>
           <Form.Item>
             {this.getRequiredFieldDecorator(
               'gross',
               'Por favor informe o rendimento',
               get(income, 'gross') || 0
-            )(<Input placeholder="Rendimento" />)}
+            )(<InputCurrency placeholder="Rendimento" />)}
           </Form.Item>
           <Form.Item>
             {this.getRequiredFieldDecorator('ir', 'Por favor informe o IR', get(income, 'ir') || 0)(
-              <Input placeholder="IR" />
+              <InputCurrency placeholder="IR" />
             )}
           </Form.Item>
           <Form.Item>
@@ -89,7 +91,7 @@ class InvestmentForm extends React.Component {
               'fee',
               'Por favor informe a taxa',
               get(income, 'fee') || 0
-            )(<Input placeholder="Taxa" />)}
+            )(<InputCurrency placeholder="Taxa" />)}
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
