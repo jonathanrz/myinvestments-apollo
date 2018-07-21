@@ -37,6 +37,7 @@ class EditInvestmentPage extends React.Component {
               pathname: `/investment/${investmentUuid}`,
               state: { uuid: investmentUuid }
             }}
+            push
           />
         ) : (
           <Query query={query} variables={{ uuid: match.params.uuid }}>

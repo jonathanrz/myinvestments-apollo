@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard'
 import Investment from './pages/Investment'
 import NewInvestment from './pages/NewInvestment'
 import EditInvestment from './pages/EditInvestment'
+import NewIncome from './pages/NewIncome'
 import EditIncome from './pages/EditIncome'
 
 const client = new ApolloClient({
@@ -33,6 +34,7 @@ const ApolloApp = () => (
         <Route path="/login" component={Login} />
         <Route path="/new-investment" component={NewInvestment} />
         <Route path="/investment/:uuid/edit" component={EditInvestment} />
+        <Route path="/investment/:uuid/add-income" component={NewIncome} />
         <Route path="/investment/:uuid" component={Investment} />
         <Route path="/income/:uuid/edit" component={EditIncome} />
       </div>

@@ -54,6 +54,7 @@ class Investment extends React.Component {
           pathname: `/income/${redirectTo}/edit`,
           state: { uuid: redirectTo }
         }}
+        push
       />
     ) : (
       <Page>

@@ -24,7 +24,7 @@ class Investments extends React.Component {
     const { redirectTo } = this.state
 
     return redirectTo ? (
-      <Redirect to={{ pathname: `/investment/${redirectTo}`, state: { uuid: redirectTo } }} />
+      <Redirect to={{ pathname: `/investment/${redirectTo}`, state: { uuid: redirectTo } }} push />
     ) : (
       <Table
         data={data}
