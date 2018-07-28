@@ -9,4 +9,8 @@ describe('FormatCurrency', () => {
   it('format float value as currency', () => {
     expect(formatCurrency(123.45)).toBe('$123.45')
   })
+
+  it('format string value as currency', () => {
+    expect(formatCurrency('123.45')).toBe('$123.45')
+  })
 })

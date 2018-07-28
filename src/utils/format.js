@@ -7,18 +7,20 @@ export function formatDate(date) {
 }
 
 function isFloat(n) {
-  return Number(n) === n && n % 1 !== 0
+  return Number(n) % 1 !== 0
 }
 
 export function formatCurrency(value) {
   if (value === undefined || value == null) return 'Valor inválido'
+  value = Number(value)
   if (isFloat(value)) value = value.toFixed(2)
-  else value = (value / 100).toFixed(2).toString()
+  else value = (value / 100).toFixed(2)
   return '$' + value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
 }
 
 export function formatNumber(value) {
   if (value === undefined || value == null) return 'Valor inválido'
+  value = Number(value)
   if (isFloat(value)) value = value.toFixed(3)
   else value = value.toString()
   return value.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,')
