@@ -41,57 +41,57 @@ class InvestmentForm extends React.Component {
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Item>
+          <Form.Item label="Data">
             {this.getRequiredFieldDecorator('date', 'Por favor informe a data', date)(
-              <DatePicker format="DD/MM/YYYY" placeholder="Data" />
+              <DatePicker format="DD/MM/YYYY" placeholder="00/00/0000" />
             )}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Quantidade">
             {this.getRequiredFieldDecorator(
               'quantity',
               'Por favor informe a quantidade',
               get(income, 'quantity')
-            )(<Input placeholder="Quantidade" />)}
+            )(<Input placeholder="100" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Valor">
             {this.getRequiredFieldDecorator(
               'value',
               'Por favor informe o valor',
               get(income, 'value')
-            )(<InputCurrency placeholder="Valor" />)}
+            )(<InputCurrency placeholder="100" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Comprado">
             {this.getRequiredFieldDecorator(
               'bought',
               'Por favor informe o valor comprado',
               get(income, 'bought')
-            )(<InputCurrency placeholder="Comprado" />)}
+            )(<InputCurrency placeholder="100" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Vendido">
             {this.getRequiredFieldDecorator(
               'sold',
               'Por favor informe o valor vendido',
               get(income, 'sold') || 0
-            )(<InputCurrency placeholder="Vendido" />)}
+            )(<InputCurrency placeholder="100" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Rendimento">
             {this.getRequiredFieldDecorator(
               'gross',
               'Por favor informe o rendimento',
               get(income, 'gross') || 0
-            )(<InputCurrency placeholder="Rendimento" />)}
+            )(<InputCurrency placeholder="100" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="IR">
             {this.getRequiredFieldDecorator('ir', 'Por favor informe o IR', get(income, 'ir') || 0)(
-              <InputCurrency placeholder="IR" />
+              <InputCurrency placeholder="100" />
             )}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Taxa">
             {this.getRequiredFieldDecorator(
               'fee',
               'Por favor informe a taxa',
               get(income, 'fee') || 0
-            )(<InputCurrency placeholder="Taxa" />)}
+            )(<InputCurrency placeholder="100" />)}
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">

@@ -39,37 +39,37 @@ class InvestmentForm extends React.Component {
     return (
       <Container>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Item>
+          <Form.Item label="Nome">
             {this.getRequiredFieldDecorator(
               'name',
               'Por favor informe o nome do investimento',
               get(investment, 'name')
-            )(<Input placeholder="Nome" />)}
+            )(<Input placeholder="John Doe" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Detentor">
             {this.getRequiredFieldDecorator(
               'type',
               'Por favor informe o tipo do investimento',
               get(investment, 'type')
-            )(<Input placeholder="Tipo" />)}
+            )(<Input placeholder="Ação" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Detentor">
             {this.getRequiredFieldDecorator(
               'holder',
               'Por favor informe o detentor do investimento',
               get(investment, 'holder')
-            )(<Input placeholder="Detentor" />)}
+            )(<Input placeholder="Banco" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Objetivo">
             {this.getRequiredFieldDecorator(
               'objective',
               'Por favor informe o objetivo do investimento',
               get(investment, 'objective')
-            )(<Input placeholder="Objetivo" />)}
+            )(<Input placeholder="Rendimento" />)}
           </Form.Item>
-          <Form.Item>
+          <Form.Item label="Data de vencimento">
             {this.getFieldDecorator('dueDate', dueDate)(
-              <DatePicker format="DD/MM/YYYY" placeholder="Data de vencimento" />
+              <DatePicker format="DD/MM/YYYY" placeholder="00/00/0000" />
             )}
           </Form.Item>
           <Form.Item>
