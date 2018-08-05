@@ -46,11 +46,30 @@ const Link = styled(RouterLink)`
   }
 `
 
+const SiderLink = styled(RouterLink)`
+  color: ${({ theme }) => theme.color.darkPrimaryColors};
+  font-size: 16px;
+
+  &:hover {
+    color: ${({ theme }) => theme.color.darkPrimaryColors};
+    text-decoration: underline;
+  }
+
+  &:not(last-child) {
+    margin-right: 10px;
+  }
+`
+
 const StyledSider = styled(Sider)`
   background: ${({ theme }) => theme.color.background};
   min-width: 150px;
   width: 10%;
 `
+
+const siderLinks = [
+  { label: 'Dashboard', to: '/' },
+  { label: 'Investimentos do Mês', to: '/investmentsOfMonth' }
+]
 
 const CustomLayout = ({ title, menus = [], sider = true, children }) => (
   <ThemeProvider theme={theme}>
@@ -64,7 +83,17 @@ const CustomLayout = ({ title, menus = [], sider = true, children }) => (
         ))}
       </StyledHeader>
       <StyledMainLayout>
-        {sider && <StyledSider>Sider</StyledSider>}
+        {sider && (
+          <StyledSider>
+            <ul>
+              {siderLinks.map(menu => (
+                <li key={menu.label}>
+                  <SiderLink to={menu.to}>{menu.label}</SiderLink>
+                </li>
+              ))}
+            </ul>
+          </StyledSider>
+        )}
         <Content>{children}</Content>
       </StyledMainLayout>
     </StyledLayout>
