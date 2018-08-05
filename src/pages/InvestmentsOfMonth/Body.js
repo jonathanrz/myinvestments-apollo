@@ -8,6 +8,8 @@ import Table from 'app/components/Table'
 import query from 'app/queries/InvestmentsOfMonth'
 import { fromTheme } from 'app/utils/theme'
 
+import Form from './Form'
+
 const Page = styled.div`
   margin: ${fromTheme('spacing.default')};
 `
@@ -18,10 +20,18 @@ const TableContainer = styled.div`
 
 const columns = [
   { title: 'Nome', key: 'name', width: '20%', type: 'text' },
-  { title: 'Tipo', key: 'type', width: '20%', type: 'text' },
-  { title: 'Detentor', key: 'holder', width: '20%', type: 'text' },
-  { title: 'Quantidade', key: 'lastIncome.quantity', width: '20%', type: 'number' },
-  { title: 'Valor', key: 'lastIncome.value', width: '20%', type: 'currency' }
+  { title: 'Tipo', key: 'type', width: '15%', type: 'text' },
+  { title: 'Detentor', key: 'holder', width: '15%', type: 'text' },
+  { title: 'Quantidade', key: 'lastIncome.quantity', width: '10%', type: 'number' },
+  {
+    title: 'Valor',
+    width: '40%',
+    type: 'custom',
+    /* eslint-disable-next-line react/display-name */
+    render: element => {
+      return <Form lastIncome={element.lastIncome} investmentUuid={element.uuid} />
+    }
+  }
 ]
 
 class InvestmentsOfMonth extends React.Component {
