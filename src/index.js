@@ -12,6 +12,7 @@ import EditInvestment from './pages/EditInvestment'
 import NewIncome from './pages/NewIncome'
 import EditIncome from './pages/EditIncome'
 import ImportIncomes from './pages/ImportIncomes'
+import InvestmentsOfMonth from './pages/InvestmentsOfMonth'
 
 const client = new ApolloClient({
   uri: __MYINVESTMENTS_API__, //eslint-disable-line no-undef
@@ -39,6 +40,7 @@ const ApolloApp = () => (
         <Route path="/investment/:uuid/import-incomes" component={ImportIncomes} />
         <Route path="/investment/:uuid" component={Investment} />
         <Route path="/income/:uuid/edit" component={EditIncome} />
+        <Route path="/investmentsOfMonth" component={InvestmentsOfMonth} />
       </div>
     </Router>
   </ApolloProvider>
