@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { get } from 'lodash'
 
 import { formatDate, formatCurrency, formatNumber } from 'app/utils/format'
 import { fromProp, branch } from 'app/utils/theme'
@@ -32,10 +33,11 @@ function BodyComponent({ columns, data, onRow }) {
             <Cell key={`${index}-${rowIndex}`} width={column.width} data-test="cell">
               {
                 {
-                  currency: formatCurrency(element[column.key]),
-                  date: formatDate(element[column.key]),
-                  number: formatNumber(element[column.key]),
-                  text: element[column.key]
+                  currency: formatCurrency(get(element, column.key)),
+                  custom: column.render && column.render(element),
+                  date: formatDate(get(element, column.key)),
+                  number: formatNumber(get(element, column.key)),
+                  text: get(element, column.key)
                 }[column.type]
               }
             </Cell>
