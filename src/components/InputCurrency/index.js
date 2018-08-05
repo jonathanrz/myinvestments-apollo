@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { InputNumber } from 'antd'
-
-import { formatCurrency } from 'app/utils/format'
-import { parseCurrency } from 'app/utils/parse'
+import { Input } from 'antd'
 
 class InputCurrency extends Component {
   render() {
     const { props } = this
-    return <InputNumber formatter={formatCurrency} parser={parseCurrency} {...props} />
+    return <Input addonBefore="R$" {...props} />
   }
 }
 
