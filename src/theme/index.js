@@ -19,3 +19,25 @@ export default {
     big: '50px'
   }
 }
+
+const muiTheme = {
+  palette: {
+    primary: {
+      main: '#2196F3',
+      light: '#BBDEFB',
+      dark: '#1976D2',
+      text: '#212121'
+    },
+    secondary: {
+      main: '#607D8B',
+      light: '#CFD8DC',
+      dark: '#455A64',
+      text: '#757575'
+    },
+    accent: {
+      main: '#FF4081'
+    }
+  }
+}
+
+export { muiTheme }

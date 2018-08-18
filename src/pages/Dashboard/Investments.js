@@ -1,13 +1,14 @@
 import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
 import { Redirect } from 'react-router-dom'
-import { withStyles, withTheme } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
 import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
+import { muiTheme } from 'app/theme'
 import { formatDate } from 'app/utils/format'
 import Loader from 'app/components/Loader'
 import query from 'app/queries/Investments'
@@ -16,6 +17,9 @@ const styles = {
   card: {
     minWidth: 275,
     margin: 10
+  },
+  dueDate: {
+    color: muiTheme.palette.secondary.main
   },
   header: {
     marginBottom: 16,
@@ -31,7 +35,7 @@ class Investments extends React.Component {
   }
 
   render() {
-    const { data, classes, theme } = this.props
+    const { data, classes } = this.props
     const { redirectTo } = this.state
 
     return redirectTo ? (
@@ -46,9 +50,7 @@ class Investments extends React.Component {
                 <span>{investment.holder}</span>
                 <span>{investment.objective}</span>
                 {investment.dueDate && (
-                  <span style={{ color: theme.palette.secondary.main }}>
-                    {formatDate(investment.dueDate)}
-                  </span>
+                  <span className={classes.dueDate}>{formatDate(investment.dueDate)}</span>
                 )}
               </Typography>
               <Typography variant="headline" component="h2">
@@ -73,7 +75,7 @@ class Investments extends React.Component {
   }
 }
 
-const StyledInvestments = withStyles(styles)(withTheme()(Investments))
+const StyledInvestments = withStyles(styles)(Investments)
 
 const InvestmentsQuery = () => (
   <Query query={query}>

@@ -4,8 +4,8 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
-import blueGrey from '@material-ui/core/colors/blueGrey'
-import pink from '@material-ui/core/colors/pink'
+
+import { muiTheme } from 'app/theme'
 
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
@@ -17,12 +17,7 @@ import EditIncome from './pages/EditIncome'
 import ImportIncomes from './pages/ImportIncomes'
 import InvestmentsOfMonth from './pages/InvestmentsOfMonth'
 
-const theme = createMuiTheme({
-  palette: {
-    primary: blueGrey,
-    secondary: pink
-  }
-})
+const theme = createMuiTheme(muiTheme)
 
 const client = new ApolloClient({
   uri: __MYINVESTMENTS_API__, //eslint-disable-line no-undef
