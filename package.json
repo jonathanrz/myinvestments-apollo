@@ -14,6 +14,8 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "@material-ui/core": "^1.5.0",
+    "@material-ui/icons": "^2.0.2",
     "antd": "3.3.3",
     "apollo-boost": "0.1.3",
     "babel-plugin-import": "1.6.7",
