@@ -2,13 +2,14 @@ import React, { Fragment } from 'react'
 import { Query } from 'react-apollo'
 import { Redirect } from 'react-router-dom'
 import { withStyles, withTheme } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
 import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 
 import { formatDate } from 'app/utils/format'
 import Loader from 'app/components/Loader'
-import Table from 'app/components/Table'
 import query from 'app/queries/Investments'
 
 const styles = {
@@ -24,14 +25,6 @@ const styles = {
   }
 }
 
-const columns = [
-  { title: 'Nome', key: 'name', width: '20%', type: 'text' },
-  { title: 'Tipo', key: 'type', width: '20%', type: 'text' },
-  { title: 'Detentor', key: 'holder', width: '20%', type: 'text' },
-  { title: 'Objetivo', key: 'objective', width: '20%', type: 'text' },
-  { title: 'Data Vencimento', key: 'dueDate', width: '20%', type: 'date' }
-]
-
 class Investments extends React.Component {
   state = {
     redirectTo: undefined
@@ -45,12 +38,6 @@ class Investments extends React.Component {
       <Redirect to={{ pathname: `/investment/${redirectTo}`, state: { uuid: redirectTo } }} push />
     ) : (
       <Fragment>
-        <Table
-          data={data}
-          columns={columns}
-          onRow={record => this.setState({ redirectTo: record.uuid })}
-        />
-
         {data.map(investment => (
           <Card className={classes.card} key={investment.uuid}>
             <CardContent>
@@ -68,6 +55,17 @@ class Investments extends React.Component {
                 {investment.name}
               </Typography>
             </CardContent>
+            <CardActions>
+              <Button
+                onClick={() => {
+                  this.setState({ redirectTo: investment.uuid })
+                }}
+                size="small"
+                color="primary"
+              >
+                Ver investimento
+              </Button>
+            </CardActions>
           </Card>
         ))}
       </Fragment>
