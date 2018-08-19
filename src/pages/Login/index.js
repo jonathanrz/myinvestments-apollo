@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 
 import mutation from 'app/mutations/Login'
 
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 import Loader from 'app/components/Loader'
 
 import LoginForm from './Form'
@@ -30,7 +30,7 @@ class Login extends React.Component {
     const { loading, errors } = this.props.response
 
     return (
-      <Layout title="Entrar" sider={false}>
+      <AppBar title="Entrar" sider={false}>
         {loading ? (
           <Loader message={'Executando Login'} />
         ) : errors ? (
@@ -38,7 +38,7 @@ class Login extends React.Component {
         ) : (
           <LoginForm executeLogin={this.executeLogin} />
         )}
-      </Layout>
+      </AppBar>
     )
   }
 }

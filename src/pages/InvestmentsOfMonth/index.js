@@ -1,15 +1,15 @@
 import React from 'react'
 
 import requireAuth from 'app/lib/requireAuth'
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 
 import Body from './Body'
 
 function InvestmentOfMonthPage() {
   return (
-    <Layout title="Investimentos do mês">
+    <AppBar title="Investimentos do mês">
       <Body />
-    </Layout>
+    </AppBar>
   )
 }
 

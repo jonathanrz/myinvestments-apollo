@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import requireAuth from 'app/lib/requireAuth'
 import { parseDate } from 'app/utils/parse'
 import mutation from 'app/mutations/CreateIncome'
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 import Loader from 'app/components/Loader'
 
 import { Form, Input, Button } from 'antd'
@@ -52,7 +52,7 @@ class NewIncomePage extends React.Component {
     ]`
 
     return (
-      <Layout title="Novo Rendimento">
+      <AppBar title="Novo Rendimento">
         {loading ? (
           <Loader message={'Criando rendimento'} />
         ) : errors ? (
@@ -81,7 +81,7 @@ class NewIncomePage extends React.Component {
             </Form.Item>
           </Form>
         )}
-      </Layout>
+      </AppBar>
     )
   }
 }

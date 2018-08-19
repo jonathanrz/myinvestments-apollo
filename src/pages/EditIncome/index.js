@@ -6,7 +6,7 @@ import { get } from 'lodash'
 import requireAuth from 'app/lib/requireAuth'
 import query from 'app/queries/Income'
 import mutation from 'app/mutations/UpdateIncome'
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 import Loader from 'app/components/Loader'
 
 import Form from 'app/components/Income/Form'
@@ -26,7 +26,7 @@ class EditIncomePage extends React.Component {
     const investmentUuid = get(response, 'data.updateIncome.investment.uuid')
 
     return (
-      <Layout title="Editar Rendimento">
+      <AppBar title="Editar Rendimento">
         {response.loading ? (
           <Loader message={'Salvando rendimento'} />
         ) : response.errors ? (
@@ -48,7 +48,7 @@ class EditIncomePage extends React.Component {
             }}
           </Query>
         )}
-      </Layout>
+      </AppBar>
     )
   }
 }

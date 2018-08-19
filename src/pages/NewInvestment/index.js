@@ -5,7 +5,7 @@ import { get } from 'lodash'
 
 import requireAuth from 'app/lib/requireAuth'
 import mutation from 'app/mutations/CreateInvestment'
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 import Loader from 'app/components/Loader'
 
 import Form from 'app/components/Investment/Form'
@@ -25,7 +25,7 @@ class NewInvestmentPage extends React.Component {
     const newInvestmentUuid = get(data, 'createInvestment.uuid')
 
     return (
-      <Layout title="Novo Investimento">
+      <AppBar title="Novo Investimento">
         {loading ? (
           <Loader message={'Criando investimento'} />
         ) : errors ? (
@@ -41,7 +41,7 @@ class NewInvestmentPage extends React.Component {
         ) : (
           <Form onSubmit={this.createInvestment} />
         )}
-      </Layout>
+      </AppBar>
     )
   }
 }

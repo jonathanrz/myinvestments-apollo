@@ -1,7 +1,7 @@
 import React from 'react'
 
 import requireAuth from 'app/lib/requireAuth'
-import Layout from 'app/components/Layout'
+import AppBar from 'app/components/AppBar'
 
 import Body from './Body'
 
@@ -9,7 +9,7 @@ function InvestmentPage({ match }) {
   const { uuid } = match.params
 
   return (
-    <Layout
+    <AppBar
       title="Investimento"
       menus={[
         { to: '/', label: 'Investimentos' },
@@ -19,7 +19,7 @@ function InvestmentPage({ match }) {
       ]}
     >
       <Body uuid={uuid} />
-    </Layout>
+    </AppBar>
   )
 }
 
