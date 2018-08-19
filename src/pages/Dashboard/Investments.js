@@ -14,6 +14,12 @@ import Loader from 'app/components/Loader'
 import query from 'app/queries/Investments'
 
 const styles = {
+  action: {
+    color: muiTheme.palette.accent.main
+  },
+  actions: {
+    flexDirection: 'row-reverse'
+  },
   card: {
     minWidth: 275,
     margin: 10
@@ -57,13 +63,13 @@ class Investments extends React.Component {
                 {investment.name}
               </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions className={classes.actions}>
               <Button
                 onClick={() => {
                   this.setState({ redirectTo: investment.uuid })
                 }}
                 size="small"
-                color="primary"
+                className={classes.action}
               >
                 Ver investimento
               </Button>
