@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 
 import { muiTheme } from 'app/theme'
 import { formatDate } from 'app/utils/format'
-import Loader from 'app/components/Loader'
+import Loader from 'app/common/Loader'
 import query from 'app/queries/Investments'
 
 const styles = {

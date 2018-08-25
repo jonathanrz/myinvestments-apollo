@@ -4,7 +4,7 @@ import moment from 'moment'
 import { get } from 'lodash'
 import { Form, DatePicker, Input, Button } from 'antd'
 
-import InputCurrency from 'app/components/InputCurrency'
+import InputCurrency from 'app/common/InputCurrency'
 
 const Container = styled.div`
   max-width: 600px;

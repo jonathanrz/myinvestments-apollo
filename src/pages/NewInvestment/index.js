@@ -5,10 +5,10 @@ import { get } from 'lodash'
 
 import requireAuth from 'app/lib/requireAuth'
 import mutation from 'app/mutations/CreateInvestment'
-import AppBar from 'app/components/AppBar'
-import Loader from 'app/components/Loader'
+import AppBar from 'app/common/AppBar'
+import Loader from 'app/common/Loader'
 
-import Form from 'app/components/Investment/Form'
+import Form from 'app/common/Investment/Form'
 
 class NewInvestmentPage extends React.Component {
   createInvestment = data => {

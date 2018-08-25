@@ -6,10 +6,9 @@ import { get } from 'lodash'
 import requireAuth from 'app/lib/requireAuth'
 import query from 'app/queries/Income'
 import mutation from 'app/mutations/UpdateIncome'
-import AppBar from 'app/components/AppBar'
-import Loader from 'app/components/Loader'
-
-import Form from 'app/components/Income/Form'
+import AppBar from 'app/common/AppBar'
+import Loader from 'app/common/Loader'
+import Form from 'app/common/Income/Form'
 
 class EditIncomePage extends React.Component {
   updateIncome = data => {

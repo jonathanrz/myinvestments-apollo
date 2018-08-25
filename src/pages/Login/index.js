@@ -4,8 +4,8 @@ import { withRouter } from 'react-router-dom'
 
 import mutation from 'app/mutations/Login'
 
-import AppBar from 'app/components/AppBar'
-import Loader from 'app/components/Loader'
+import AppBar from 'app/common/AppBar'
+import Loader from 'app/common/Loader'
 
 import LoginForm from './Form'
 

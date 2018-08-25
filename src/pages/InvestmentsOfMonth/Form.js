@@ -7,7 +7,7 @@ import { Form, Button } from 'antd'
 
 import query from 'app/queries/InvestmentsOfMonth'
 import mutation from 'app/mutations/CreateIncome'
-import InputCurrency from 'app/components/InputCurrency'
+import InputCurrency from 'app/common/InputCurrency'
 
 const Container = styled.div`
   .ant-form-inline {

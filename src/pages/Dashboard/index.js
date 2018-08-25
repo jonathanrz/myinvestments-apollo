@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import requireAuth from 'app/lib/requireAuth'
-import AppBar from 'app/components/AppBar'
+import AppBar from 'app/common/AppBar'
 
 import Investments from './Investments'
 

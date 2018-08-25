@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Label from 'app/components/Label'
+import Label from 'app/common/Label'
 
 const Container = styled.div`
   display: flex;

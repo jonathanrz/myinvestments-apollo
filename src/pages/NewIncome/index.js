@@ -4,10 +4,10 @@ import { Redirect } from 'react-router-dom'
 
 import requireAuth from 'app/lib/requireAuth'
 import mutation from 'app/mutations/CreateIncome'
-import AppBar from 'app/components/AppBar'
-import Loader from 'app/components/Loader'
+import AppBar from 'app/common/AppBar'
+import Loader from 'app/common/Loader'
 
-import Form from 'app/components/Income/Form'
+import Form from 'app/common/Income/Form'
 
 class NewIncomePage extends React.Component {
   createIncome = data => {

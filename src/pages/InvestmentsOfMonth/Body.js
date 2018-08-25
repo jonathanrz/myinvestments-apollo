@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Query } from 'react-apollo'
 import { orderBy } from 'lodash'
 
-import Loader from 'app/components/Loader'
-import Table from 'app/components/Table'
+import Loader from 'app/common/Loader'
+import Table from 'app/common/Table'
 import query from 'app/queries/InvestmentsOfMonth'
 import { fromTheme } from 'app/utils/theme'
 

@@ -5,8 +5,8 @@ import { Redirect } from 'react-router-dom'
 import requireAuth from 'app/lib/requireAuth'
 import { parseDate } from 'app/utils/parse'
 import mutation from 'app/mutations/CreateIncome'
-import AppBar from 'app/components/AppBar'
-import Loader from 'app/components/Loader'
+import AppBar from 'app/common/AppBar'
+import Loader from 'app/common/Loader'
 
 import { Form, Input, Button } from 'antd'
 
