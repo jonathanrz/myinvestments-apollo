@@ -20,6 +20,9 @@ module.exports = {
     ]
   },
   karma: {
-    testContext: 'enzyme.js'
+    testContext: 'enzyme.js',
+    extra: {
+      captureConsole: true
+    }
   }
 }

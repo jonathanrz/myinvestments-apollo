@@ -86,8 +86,8 @@ describe('Form', () => {
   })
 
   it('prevents submission if the form is already being submitted', () => {
-    const onSubmit = jest.fn()
-    const preventDefault = jest.fn()
+    const onSubmit = createSpy()
+    const preventDefault = createSpy()
     const wrapper = shallow(<Form onSubmit={onSubmit}>{noop}</Form>)
 
     const formWrapper = shallow(
@@ -101,13 +101,13 @@ describe('Form', () => {
 
     formWrapper.simulate('submit', { preventDefault })
 
-    expect(onSubmit).not.toHaveBeenCalled()
+    expect(onSubmit).toNotHaveBeenCalled()
     expect(preventDefault).toHaveBeenCalled()
   })
 
   it('calls the render prop with the current form state', () => {
     const formState = { someState: Math.random() }
-    const children = jest.fn(() => null)
+    const children = createSpy(() => null)
     const wrapper = shallow(<Form>{children}</Form>)
 
     shallow(wrapper.prop('render')(formState))

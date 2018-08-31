@@ -1,5 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
+import expect from 'expect'
 import CircularProgress from '@material-ui/core/CircularProgress'
 import ComponentLifecycle from 'app/common/ComponentLifecycle'
 import { LoadingIndicatorProvider, LoadingIndicator, ShowLoadingIndicator } from './index'
@@ -17,7 +18,7 @@ describe('LoadingIndicatorProvider', () => {
     const wrapper = build()
 
     for (let i = 0; i < 5; i++) {
-      expect(wrapper).toHaveState({ count: i, loading: i > 0 })
+      expect(wrapper.state()).toEqual({ count: i, loading: i > 0 })
       wrapper.instance().register()
     }
   })
@@ -37,7 +38,7 @@ describe('LoadingIndicatorProvider', () => {
 
     wrapper.setState({ loading: 'SOME LOADING' })
 
-    expect(wrapper).toHaveProp({
+    expect(wrapper.props()).toEqual({
       value: {
         loading: 'SOME LOADING',
         register: wrapper.instance().register,
@@ -51,7 +52,8 @@ describe('LoadingIndicatorProvider', () => {
 describe('LoadingIndicator', () => {
   it('renders nothing if the provider is not loading', () => {
     const wrapper = renderConsumer(LoadingIndicator, { loading: false })
-    expect(wrapper.children()).toHaveLength(0)
+    console.log({ props: wrapper.children() })
+    expect(wrapper.children().length).toEqual(0)
   })
 
   it('renders a CircularProgress if the provider is loading', () => {
